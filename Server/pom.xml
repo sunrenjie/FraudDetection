@@ -1,0 +1,116 @@
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>io.pivotal.demo.sko</groupId>
+        <artifactId>FraudDetection</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
+    </parent>
+
+    <artifactId>Server</artifactId>
+    <name>Server</name>
+    <description>CacheListeners, Functions and Write Through Logic</description>
+
+    <properties>
+        <antlr.version>2.7.7</antlr.version>
+        <commons-io.version>2.3</commons-io.version>
+        <commons-modeler.version>2.0.1</commons-modeler.version>
+        <jackson.version>2.2.0</jackson.version>
+        <jetty.version>9.2.3.v20140905</jetty.version>
+        <jline.version>1.0.S2-B</jline.version>
+        <jmock.version>2.6.0</jmock.version>
+        <jna.version>4.0.0</jna.version>
+        <junit.version>4.12</junit.version>
+        <log4j.version>2.1</log4j.version>
+        <mail.version>1.4.3</mail.version>
+        <multithreadedtc.version>1.01</multithreadedtc.version>
+        <mx4j.version>3.0.2</mx4j.version>
+        <mx4j-tools.version>3.0.1</mx4j-tools.version>
+        <snappy-java.version>1.0.4.1</snappy-java.version>
+        <spring.version>3.2.12.RELEASE</spring.version>
+        <spring-data-gemfire.version>1.5.1.RELEASE</spring-data-gemfire.version>
+        <spring-shell.version>1.0.0.RELEASE</spring-shell.version>
+        <xml-apis.version>1.4.01</xml-apis.version>
+        <xom.version>1.2.5</xom.version>
+    </properties>
+
+    <dependencies>
+
+        <!-- org.fusesource.jansi:jansi:1.8; GemFire Gfsh "optiona", "runtime" dependency -->
+        <dependency>
+            <groupId>org.eclipse.jetty</groupId>
+            <artifactId>jetty-webapp</artifactId>
+            <version>${jetty.version}</version>
+            <optional>true</optional>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-core</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.gemstone.gemfire</groupId>
+            <artifactId>gemfire</artifactId>
+            <version>8.1.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.gemstone.gemfire</groupId>
+            <artifactId>gfsh-dependencies</artifactId>
+            <version>8.2.0</version>
+            <scope>system</scope>
+            <systemPath>/sda3/home/r/Downloads/pivotal/Pivotal_GemFire_820_b17919_Linux/lib/gfsh-dependencies.jar</systemPath>
+        </dependency>
+
+        <!--
+        <dependency>
+            <groupId>io.pivotal.gemfire</groupId>
+            <artifactId>gemfire-greenplum</artifactId>
+            <version>3.4.1</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/../libs/gemfire-greenplum-3.4.1.jar</systemPath>
+        </dependency>
+        -->
+        <dependency>
+            <groupId>io.pivotal.gemfire</groupId>
+            <artifactId>gemfire-greenplum</artifactId>
+            <version>1.0.0-beta-6</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/../libs/gemfire-greenplum-1.0.0-beta-6-SNAPSHOT.jar</systemPath>
+        </dependency>
+        <!--
+        <dependency>
+            <groupId>io.pivotal.gemfire</groupId>
+            <artifactId>greenplum-jdbc</artifactId>
+            <version>5.1.4</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/libs/PROGRESS_DATADIRECT_JDBC_DRIVER_PIVOTAL_GREENPLUM_5.1.4.jar</systemPath>
+        </dependency>
+        -->
+
+        <dependency>
+            <groupId>postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>9.4-1206-jdbc4</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/../libs/postgresql-9.4-1206-jdbc4.jar</systemPath>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>2.4</version>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
