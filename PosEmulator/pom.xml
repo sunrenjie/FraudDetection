@@ -10,92 +10,67 @@
 
     <artifactId>PosEmulator</artifactId>
     <name>PosEmulator</name>
+    <version>0.0.1-SNAPSHOT</version>
     <description>PosEmulator</description>
 
     <dependencies>
         <dependency>
             <groupId>org.eclipse.jetty</groupId>
             <artifactId>jetty-webapp</artifactId>
-            <optional>true</optional>
+            <version>${jetty.version}</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
+            <version>${spring-boot.version}</version>
+
+            <exclusions>
+                <exclusion>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-starter-tomcat</artifactId>
+                </exclusion>
+                <exclusion>
+                    <artifactId>spring-boot-starter-logging</artifactId>
+                    <groupId>*</groupId>
+                </exclusion>
+            </exclusions>
         </dependency>
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-autoconfigure</artifactId>
+            <version>${spring-boot.version}</version>
         </dependency>
         <dependency>
-            <groupId>org.mortbay.jetty</groupId>
+            <groupId>org.eclipse.jetty</groupId>
             <artifactId>jetty-util</artifactId>
+            <version>${jetty.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.eclipse.jetty</groupId>
+            <artifactId>jetty-util-ajax</artifactId>
+            <version>${jetty.version}</version>
         </dependency>
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
+            <version>${jackson.version}</version>
         </dependency>
         <dependency>
             <groupId>org.apache.logging.log4j</groupId>
             <artifactId>log4j-api</artifactId>
+            <version>${log4j.version}</version>
         </dependency>
         <dependency>
             <groupId>org.apache.logging.log4j</groupId>
             <artifactId>log4j-core</artifactId>
+            <version>${log4j.version}</version>
         </dependency>
-
-        <dependency>
-            <groupId>com.gemstone.gemfire</groupId>
-            <artifactId>gemfire</artifactId>
-        </dependency>
-
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
+            <version>4.12</version>
             <scope>test</scope>
-        </dependency>
-
-        <dependency>
-            <groupId>com.gemstone.gemfire</groupId>
-            <artifactId>gfsh-dependencies</artifactId>
-            <version>8.2.0</version>
-            <scope>system</scope>
-            <systemPath>/sda3/home/r/Downloads/pivotal/Pivotal_GemFire_820_b17919_Linux/lib/gfsh-dependencies.jar
-            </systemPath>
-        </dependency>
-
-        <!--
-        <dependency>
-            <groupId>io.pivotal.gemfire</groupId>
-            <artifactId>gemfire-greenplum</artifactId>
-            <version>3.4.1</version>
-            <scope>system</scope>
-            <systemPath>${project.basedir}/libs/gemfire-greenplum-3.4.1.jar</systemPath>
-        </dependency>
-        -->
-        <dependency>
-            <groupId>io.pivotal.gemfire</groupId>
-            <artifactId>gemfire-greenplum</artifactId>
-            <version>1.0.0-beta-6</version>
-            <scope>system</scope>
-            <systemPath>${project.basedir}/../libs/gemfire-greenplum-1.0.0-beta-6-SNAPSHOT.jar</systemPath>
-        </dependency>
-        <!--
-        <dependency>
-            <groupId>io.pivotal.gemfire</groupId>
-            <artifactId>greenplum-jdbc</artifactId>
-            <version>5.1.4</version>
-            <scope>system</scope>
-            <systemPath>${project.basedir}/../libs/PROGRESS_DATADIRECT_JDBC_DRIVER_PIVOTAL_GREENPLUM_5.1.4.jar</systemPath>
-        </dependency>
-        -->
-
-        <dependency>
-            <groupId>postgresql</groupId>
-            <artifactId>postgresql</artifactId>
-            <version>9.4-1206-jdbc4</version>
-            <scope>system</scope>
-            <systemPath>${project.basedir}/../libs/postgresql-9.4-1206-jdbc4.jar</systemPath>
         </dependency>
     </dependencies>
 

@@ -3,11 +3,11 @@ package io.pivotal.demo.sko;
 import java.util.Properties;
 import java.util.Random;
 
-import com.gemstone.gemfire.cache.CacheWriterException;
-import com.gemstone.gemfire.cache.Declarable;
-import com.gemstone.gemfire.cache.EntryEvent;
-import com.gemstone.gemfire.cache.util.CacheWriterAdapter;
-import com.gemstone.gemfire.pdx.PdxInstance;
+import org.apache.geode.cache.CacheWriterException;
+import org.apache.geode.cache.Declarable;
+import org.apache.geode.cache.EntryEvent;
+import org.apache.geode.cache.util.CacheWriterAdapter;
+import org.apache.geode.pdx.PdxInstance;
 
 public class CheckTransactionLimitCacheWriter extends CacheWriterAdapter implements Declarable {
 

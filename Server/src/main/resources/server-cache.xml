@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<cache xmlns="http://schema.pivotal.io/gemfire/cache" xmlns:gpdb="http://schema.pivotal.io/gemfire/gpdb"
+<cache xmlns="http://geode.apache.org/schema/cache" xmlns:gpdb="http://schema.pivotal.io/gemfire/gpdb"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://schema.pivotal.io/gemfire/cache http://schema.pivotal.io/gemfire/cache/cache-8.1.xsd
-                        http://schema.pivotal.io/gemfire/gpdb http://schema.pivotal.io/gemfire/gpdb/gpdb-1.0.xsd"
-	version="8.1">
+	xsi:schemaLocation="http://geode.apache.org/schema/cache http://geode.apache.org/schema/cache/cache-1.0.xsd
+                        http://schema.pivotal.io/gemfire/gpdb http://schema.pivotal.io/gemfire/gpdb/gpdb-3.4.xsd"
+	   version="1.0">
 
 	<pdx read-serialized="true" persistent="false">
 		<pdx-serializer>
@@ -24,9 +24,9 @@
 			<partition-attributes redundant-copies="1" />
 		</region-attributes>
 		<gpdb:store datasource="datasource">
-			<gpdb:synchronize mode="automatic" time-interval="60000" persistent="false" />
+			<!-- <gpdb:synchronize mode="automatic" time-interval="60000" persistent="false" /> -->
 			<gpdb:types>
-				<gpdb:pdx name="io.pivotal.sko.demo.entity.PoSDevice"
+				<gpdb:pdx name="io.pivotal.sko.demo.entity.PoSDeviceS"
 					table="POS_DEVICE">
 					<gpdb:id field="id" />
 					<gpdb:fields>
@@ -44,7 +44,7 @@
 			<partition-attributes redundant-copies="1"
 				colocated-with="PoS">
 				<partition-resolver>
-					<class-name>io.pivotal.gemfire.gpdb.IdPartitionResolver</class-name>
+					<class-name>io.pivotal.demo.sko.IdPartitionResolver</class-name>
 					<parameter name="field">
 						<string>deviceId</string>
 					</parameter>
@@ -57,7 +57,7 @@
 
 		</region-attributes>
 		<gpdb:store datasource="datasource">
-			<gpdb:synchronize mode="automatic" time-interval="60000" persistent="false" />
+			<!-- <gpdb:synchronize mode="automatic" time-interval="60000" persistent="false" /> -->
 			<gpdb:types>
 				<gpdb:pdx name="io.pivotal.gemfire.sko.entity.Transaction"
 					table="TRANSACTION">
@@ -77,10 +77,9 @@
 	</region>
 	<region name="Suspect">
 		<region-attributes refid="PARTITION_HEAP_LRU">
-			<partition-attributes redundant-copies="1"
-				colocated-with="Transaction">
+			<partition-attributes redundant-copies="1" colocated-with="Transaction">
 				<partition-resolver>
-					<class-name>io.pivotal.gemfire.gpdb.IdPartitionResolver</class-name>
+					<class-name>io.pivotal.demo.sko.IdPartitionResolver</class-name>
 					<parameter name="field">
 						<string>deviceId</string>
 					</parameter>
@@ -88,10 +87,8 @@
 			</partition-attributes>
 		</region-attributes>
 		<gpdb:store datasource="datasource">
-			<gpdb:synchronize mode="automatic" time-interval="60000" persistent="false" />
 			<gpdb:types>
-				<gpdb:pdx name="io.pivotal.gemfire.sko.entity.Suspect"
-					table="SUSPECT">
+				<gpdb:pdx name="io.pivotal.gemfire.sko.entity.Suspect" table="SUSPECT">
 					<gpdb:id>
 						<gpdb:field ref="transactionId" />
 					</gpdb:id>
@@ -108,9 +105,6 @@
 	<function-service>
                 <function>
                         <class-name>io.pivotal.demo.sko.function.RefreshFraudAlertsFromGPDB</class-name>
-                </function>
-                <function>
-                        <class-name>io.pivotal.demo.sko.function.ShareAll</class-name>
                 </function>
     </function-service>
 

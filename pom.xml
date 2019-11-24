@@ -12,8 +12,8 @@
         <antlr.version>2.7.7</antlr.version>
         <commons-io.version>2.3</commons-io.version>
         <commons-modeler.version>2.0.1</commons-modeler.version>
-        <jackson.version>2.9.9</jackson.version>
-        <jetty.version>9.2.3.v20140905</jetty.version>
+        <jackson.version>2.9.8</jackson.version>
+        <jetty.version>9.4.12.v20180830</jetty.version>
         <jline.version>1.0.S2-B</jline.version>
         <jmock.version>2.6.0</jmock.version>
         <jna.version>4.0.0</jna.version>
@@ -24,12 +24,15 @@
         <mx4j.version>3.0.2</mx4j.version>
         <mx4j-tools.version>3.0.1</mx4j-tools.version>
         <snappy-java.version>1.0.4.1</snappy-java.version>
-        <spring.version>3.2.12.RELEASE</spring.version>
-        <spring-boot.version>1.5.21.RELEASE</spring-boot.version>
-        <spring-data-gemfire.version>1.5.1.RELEASE</spring-data-gemfire.version>
+        <spring.version>4.3.20.RELEASE</spring.version>
+        <spring-boot.version>1.5.17.RELEASE</spring-boot.version>
+        <geode.version>1.10.0</geode.version>
+        <spring-data-gemfire.version>2.1.11.RELEASE</spring-data-gemfire.version>
         <spring-shell.version>1.0.0.RELEASE</spring-shell.version>
         <xml-apis.version>1.4.01</xml-apis.version>
         <xom.version>1.2.5</xom.version>
+        <!-- Path to pivotal-gemfire-9.8.4; change to real path. -->
+        <gemfire.home>/home/r/bin/pivotal-gemfire-9.8.4</gemfire.home>
     </properties>
 
     <modules>
@@ -48,9 +51,9 @@
                 <optional>true</optional>
             </dependency>
             <dependency>
-                <groupId>org.mortbay.jetty</groupId>
+                <groupId>org.eclipse.jetty</groupId>
                 <artifactId>jetty-util</artifactId>
-                <version>6.1.25</version>
+                <version>${jetty.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.fasterxml.jackson.core</groupId>
@@ -84,55 +87,6 @@
                 <groupId>org.apache.logging.log4j</groupId>
                 <artifactId>log4j-core</artifactId>
                 <version>${log4j.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>com.gemstone.gemfire</groupId>
-                <artifactId>gemfire</artifactId>
-                <version>8.1.0</version>
-            </dependency>
-
-            <dependency>
-                <groupId>com.gemstone.gemfire</groupId>
-                <artifactId>gfsh-dependencies</artifactId>
-                <version>8.2.0</version>
-                <scope>system</scope>
-                <systemPath>/sda3/home/r/Downloads/pivotal/Pivotal_GemFire_820_b17919_Linux/lib/gfsh-dependencies.jar
-                </systemPath>
-            </dependency>
-
-            <!--
-            <dependency>
-                <groupId>io.pivotal.gemfire</groupId>
-                <artifactId>gemfire-greenplum</artifactId>
-                <version>3.4.1</version>
-                <scope>system</scope>
-                <systemPath>${project.basedir}/libs/gemfire-greenplum-3.4.1.jar</systemPath>
-            </dependency>
-            -->
-            <dependency>
-                <groupId>io.pivotal.gemfire</groupId>
-                <artifactId>gemfire-greenplum</artifactId>
-                <version>1.0.0-beta-6</version>
-                <scope>system</scope>
-                <systemPath>${project.basedir}/libs/gemfire-greenplum-1.0.0-beta-6-SNAPSHOT.jar</systemPath>
-            </dependency>
-            <!--
-            <dependency>
-                <groupId>io.pivotal.gemfire</groupId>
-                <artifactId>greenplum-jdbc</artifactId>
-                <version>5.1.4</version>
-                <scope>system</scope>
-                <systemPath>${project.basedir}/libs/PROGRESS_DATADIRECT_JDBC_DRIVER_PIVOTAL_GREENPLUM_5.1.4.jar</systemPath>
-            </dependency>
-            -->
-
-            <dependency>
-                <groupId>postgresql</groupId>
-                <artifactId>postgresql</artifactId>
-                <version>9.4-1206-jdbc4</version>
-                <scope>system</scope>
-                <systemPath>${project.basedir}/libs/postgresql-9.4-1206-jdbc4.jar</systemPath>
             </dependency>
         </dependencies>
     </dependencyManagement>

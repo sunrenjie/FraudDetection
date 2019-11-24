@@ -2,6 +2,8 @@ package io.pivotal.demo.sko.function;
 
 import io.pivotal.demo.sko.RegionName;
 import io.pivotal.gemfire.gpdb.service.GpdbService;
+import io.pivotal.gemfire.gpdb.service.ImportConfiguration;
+import io.pivotal.gemfire.gpdb.service.ImportResult;
 import io.pivotal.gemfire.gpdb.util.RegionFunctionAdapter;
 
 import java.util.Properties;
@@ -9,13 +11,12 @@ import java.util.Properties;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import com.gemstone.gemfire.cache.Cache;
-import com.gemstone.gemfire.cache.CacheFactory;
-import com.gemstone.gemfire.cache.Declarable;
-import com.gemstone.gemfire.cache.execute.RegionFunctionContext;
+import org.apache.geode.cache.Cache;
+import org.apache.geode.cache.CacheFactory;
+import org.apache.geode.cache.Declarable;
+import org.apache.geode.cache.execute.RegionFunctionContext;
 
-public class RefreshFraudAlertsFromGPDB extends RegionFunctionAdapter implements
-        Declarable {
+public class RefreshFraudAlertsFromGPDB extends RegionFunctionAdapter implements Declarable {
 
     private static final Logger log = LogManager.getLogger();
     public static final String ID = "RefreshFraudAlertsFromGPDB";
@@ -43,9 +44,10 @@ public class RefreshFraudAlertsFromGPDB extends RegionFunctionAdapter implements
         // load data for fraudulent transactions
         try {
             Cache cache = CacheFactory.getAnyInstance();
-            GpdbService gpdb = GpdbService.getInstance(cache);
-            long count = gpdb.importRegion(cache.getRegion(RegionName.Suspect.name()));
-            log.info("Loaded " + count + " rows from GPDB on region " + RegionName.Suspect.name());
+            String name = RegionName.Suspect.name();
+            ImportResult r = GpdbService.importRegion(ImportConfiguration.builder(cache.getRegion(name)).build());
+            long count = r.getImportedCount();
+            log.info("Loaded " + count + " rows from GPDB on region " + name);
             arg0.getResultSender().lastResult("Loaded " + count + " entities");
         } catch (Exception e) {
             e.printStackTrace();

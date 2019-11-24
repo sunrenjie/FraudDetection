@@ -12,7 +12,7 @@ import java.util.*;
 import java.util.PrimitiveIterator.OfLong;
 import java.util.logging.Logger;
 
-import org.mortbay.util.ajax.JSON;
+import org.eclipse.jetty.util.ajax.JSON;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.ComponentScan;
@@ -182,7 +182,5 @@ public class Emulator implements CommandLineRunner {
 				device.setMerchantName("Merchant "+i);
 				PoSDevice response = restTemplate.postForObject(geodeURL+RegionName.PoS, device, PoSDevice.class);
 			}
-
-
 		}
 }
