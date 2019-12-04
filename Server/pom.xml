@@ -27,6 +27,30 @@
 
         <dependency>
             <groupId>io.pivotal.gemfire</groupId>
+            <artifactId>geode-dependencies</artifactId>
+            <version>9.8.4</version>
+            <scope>system</scope>
+            <systemPath>${gemfire.home}/lib/geode-dependencies.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>io.pivotal.gemfire</groupId>
+            <artifactId>geode-common</artifactId>
+            <version>9.8.4</version>
+            <scope>system</scope>
+            <systemPath>${gemfire.home}/lib/geode-common-9.8.4.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>io.pivotal.gemfire</groupId>
+            <artifactId>geode-connectors</artifactId>
+            <version>9.8.4</version>
+            <scope>system</scope>
+            <systemPath>${gemfire.home}/lib/geode-connectors-9.8.4.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>io.pivotal.gemfire</groupId>
             <artifactId>geode-core</artifactId>
             <version>9.8.4</version>
             <scope>system</scope>

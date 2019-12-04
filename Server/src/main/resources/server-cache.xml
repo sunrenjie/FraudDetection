@@ -26,7 +26,7 @@
 		<gpdb:store datasource="datasource">
 			<!-- <gpdb:synchronize mode="automatic" time-interval="60000" persistent="false" /> -->
 			<gpdb:types>
-				<gpdb:pdx name="io.pivotal.sko.demo.entity.PoSDeviceS"
+				<gpdb:pdx name="io.pivotal.sko.demo.entity.PoSDevice"
 					table="POS_DEVICE">
 					<gpdb:id field="id" />
 					<gpdb:fields>

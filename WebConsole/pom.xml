@@ -15,140 +15,29 @@
     <dependencies>
 
         <dependency>
-            <groupId>org.apache.logging.log4j</groupId>
-            <artifactId>log4j-api</artifactId>
-            <version>${log4j.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.logging.log4j</groupId>
-            <artifactId>log4j-core</artifactId>
-            <version>${log4j.version}</version>
+            <groupId>io.pivotal.gemfire</groupId>
+            <artifactId>geode-dependencies</artifactId>
+            <version>9.8.4</version>
+            <scope>system</scope>
+            <systemPath>${gemfire.home}/lib/geode-dependencies.jar</systemPath>
         </dependency>
 
         <dependency>
             <groupId>io.pivotal.gemfire</groupId>
-            <artifactId>geode-common</artifactId>
-            <version>9.8.4</version>
+            <artifactId>gemfire-greenplum</artifactId>
+            <version>3.4.1</version>
             <scope>system</scope>
-            <systemPath>${gemfire.home}/lib/geode-common-9.8.4.jar</systemPath>
-        </dependency>
-
-        <dependency>
-            <groupId>io.pivotal.gemfire</groupId>
-            <artifactId>geode-connectors</artifactId>
-            <version>9.8.4</version>
-            <scope>system</scope>
-            <systemPath>${gemfire.home}/lib/geode-connectors-9.8.4.jar</systemPath>
-        </dependency>
-
-        <dependency>
-            <groupId>io.pivotal.gemfire</groupId>
-            <artifactId>geode-core</artifactId>
-            <version>9.8.4</version>
-            <scope>system</scope>
-            <systemPath>${gemfire.home}/lib/geode-core-9.8.4.jar</systemPath>
-        </dependency>
-
-        <dependency>
-            <groupId>io.pivotal.gemfire</groupId>
-            <artifactId>geode-cq</artifactId>
-            <version>9.8.4</version>
-            <scope>system</scope>
-            <systemPath>${gemfire.home}/lib/geode-cq-9.8.4.jar</systemPath>
-        </dependency>
-
-        <dependency>
-            <groupId>io.pivotal.gemfire</groupId>
-            <artifactId>geode-lucene</artifactId>
-            <version>9.8.4</version>
-            <scope>system</scope>
-            <systemPath>${gemfire.home}/lib/geode-lucene-9.8.4.jar</systemPath>
-        </dependency>
-
-        <dependency>
-            <groupId>io.pivotal.gemfire</groupId>
-            <artifactId>geode-management</artifactId>
-            <version>9.8.4</version>
-            <scope>system</scope>
-            <systemPath>${gemfire.home}/lib/geode-management-9.8.4.jar</systemPath>
-        </dependency>
-
-        <dependency>
-            <groupId>io.pivotal.gemfire</groupId>
-            <artifactId>geode-old-client-support</artifactId>
-            <version>9.8.4</version>
-            <scope>system</scope>
-            <systemPath>${gemfire.home}/lib/geode-old-client-support-9.8.4.jar</systemPath>
-        </dependency>
-
-        <dependency>
-            <groupId>io.pivotal.gemfire</groupId>
-            <artifactId>geode-protobuf</artifactId>
-            <version>9.8.4</version>
-            <scope>system</scope>
-            <systemPath>${gemfire.home}/lib/geode-protobuf-9.8.4.jar</systemPath>
-        </dependency>
-
-        <dependency>
-            <groupId>io.pivotal.gemfire</groupId>
-            <artifactId>geode-protobuf-messages</artifactId>
-            <version>9.8.4</version>
-            <scope>system</scope>
-            <systemPath>${gemfire.home}/lib/geode-protobuf-messages-9.8.4.jar</systemPath>
-        </dependency>
-
-        <dependency>
-            <groupId>io.pivotal.gemfire</groupId>
-            <artifactId>geode-rebalancer</artifactId>
-            <version>9.8.4</version>
-            <scope>system</scope>
-            <systemPath>${gemfire.home}/lib/geode-rebalancer-9.8.4.jar</systemPath>
-        </dependency>
-
-        <dependency>
-            <groupId>io.pivotal.gemfire</groupId>
-            <artifactId>geode-redis</artifactId>
-            <version>9.8.4</version>
-            <scope>system</scope>
-            <systemPath>${gemfire.home}/lib/geode-redis-9.8.4.jar</systemPath>
-        </dependency>
-
-        <dependency>
-            <groupId>io.pivotal.gemfire</groupId>
-            <artifactId>geode-wan</artifactId>
-            <version>9.8.4</version>
-            <scope>system</scope>
-            <systemPath>${gemfire.home}/lib/geode-wan-9.8.4.jar</systemPath>
-        </dependency>
-
-        <dependency>
-            <groupId>io.pivotal.gemfire</groupId>
-            <artifactId>geode-web</artifactId>
-            <version>9.8.4</version>
-            <scope>system</scope>
-            <systemPath>${gemfire.home}/lib/geode-web-9.8.4.jar</systemPath>
+            <systemPath>${gemfire.home}/extensions/gemfire-greenplum-3.4.1.jar</systemPath>
         </dependency>
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-autoconfigure</artifactId>
-            <version>${spring-boot.version}</version>
         </dependency>
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
-            <version>${spring-boot.version}</version>
-            <exclusions>
-                <exclusion>
-                    <groupId>org.springframework.boot</groupId>
-                    <artifactId>spring-boot-starter-tomcat</artifactId>
-                </exclusion>
-                <exclusion>
-                    <artifactId>spring-boot-starter-logging</artifactId>
-                    <groupId>*</groupId>
-                </exclusion>
-            </exclusions>
         </dependency>
 
         <dependency>
@@ -170,16 +59,8 @@
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
-            <version>${jackson.version}</version>
         </dependency>
 
-        <dependency>
-            <groupId>io.pivotal.gemfire</groupId>
-            <artifactId>gemfire-greenplum</artifactId>
-            <version>3.4.1</version>
-            <scope>system</scope>
-            <systemPath>${gemfire.home}/extensions/gemfire-greenplum-3.4.1.jar</systemPath>
-        </dependency>
     </dependencies>
 
     <build>
