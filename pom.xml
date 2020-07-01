@@ -18,7 +18,7 @@
         <jmock.version>2.6.0</jmock.version>
         <jna.version>4.0.0</jna.version>
         <junit.version>4.12</junit.version>
-        <log4j.version>2.10.0</log4j.version>
+        <log4j.version>2.13.3</log4j.version>
         <mail.version>1.4.3</mail.version>
         <multithreadedtc.version>1.01</multithreadedtc.version>
         <mx4j.version>3.0.2</mx4j.version>
