@@ -13,7 +13,7 @@
         <commons-io.version>2.3</commons-io.version>
         <commons-modeler.version>2.0.1</commons-modeler.version>
         <jackson.version>2.9.10.1</jackson.version>
-        <jetty.version>9.4.12.v20180830</jetty.version>
+        <jetty.version>9.4.34.v20201102</jetty.version>
         <jline.version>1.0.S2-B</jline.version>
         <jmock.version>2.6.0</jmock.version>
         <jna.version>4.0.0</jna.version>
